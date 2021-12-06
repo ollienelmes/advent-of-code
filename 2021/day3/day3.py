@@ -34,6 +34,7 @@ def life_support(bit_list):
     while index < len(bit_list[0]):
         if len(bit_list) == 1:
             oxygen_rating += bit_list[0]
+            break
         bit_dict = bit_counter(bit_list)
         if bit_dict[index] >= 0:
             new_list = [bit for bit in bit_list if bit[index] != '0']
@@ -47,6 +48,7 @@ def life_support(bit_list):
     for index in range(len(bit_list[0])):
         if len(bit_list) == 1:
             co_scrubber += bit_list[0]
+            break
         bit_dict = bit_counter(bit_list)
         if bit_dict[index] >= 0:
             new_list = [bit for bit in bit_list if bit[index] != '1']
