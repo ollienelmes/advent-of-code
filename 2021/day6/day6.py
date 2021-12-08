@@ -1,5 +1,4 @@
 import timeit
-import math
 
 def input_cleaner(text):
     input_list = text.split(",")
@@ -29,12 +28,12 @@ def challenge_1(input_list):
 
     return len(input_list)
 
-def dict_method(input):
+def dict_method(input, day_max):
     vector_dict = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0}
     for i in input:
         vector_dict[i] += 1
     day = 0
-    while day < 256:
+    while day < day_max:
         new_dict = {}
         for index in range (1,9):
             new_dict[index-1] = vector_dict[index]
@@ -48,19 +47,11 @@ def dict_method(input):
         pop_count+= vector_dict[index]
     return pop_count
 
-
-
-        
-
-
 if __name__ == "__main__":
     start_time = timeit.default_timer()
     with open(r'input6.txt', 'r') as f:
         text = f.read()
     input = input_cleaner(text)
-    #input = [3,4,3,1,2]
-    #challenge_1_answer, growth_dict = challenge_1(input)
-    print(f'Challenge 1 Answer: {challenge_1(input)}')
-    print(f'Challenge 2 Answer: {dict_method(input)}')
+    print(f'Challenge 1 Answer: {dict_method(input, 80)}')
+    print(f'Challenge 2 Answer: {dict_method(input, 256)}')
     print("Time taken: %s" % (round(timeit.default_timer() - start_time, 8)))
-    #print(growth_dict)
