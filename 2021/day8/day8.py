@@ -35,7 +35,6 @@ def full_digits(keys, outputs):
             
         total_count += int(number_string)
         
-
     return total_count
 
 def pos_finder (keys):
