@@ -55,14 +55,10 @@ def gen_network(edge_dict, node_list):
     G.add_nodes_from(node_list)
     G.add_edges_from(edges)
     print(nx.info(G))
-    components = nx.connected_components(G)
-    largest_component = max(components, key=len)
-    print(len(largest_component))
     list_comp = [len(c) for c in sorted(nx.connected_components(G), key=len, reverse=True)]
-    print(list_comp)
     final_val = list_comp[0] * list_comp[1] * list_comp[2]
-    print(final_val)
-    return
+   
+    return final_val
                 
         
 if __name__ == "__main__":
